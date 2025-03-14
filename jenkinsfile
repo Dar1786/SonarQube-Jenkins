@@ -15,7 +15,7 @@ pipeline {
         stage('Scan') {
             steps {
                 withSonarQubeEnv('SonarQube') { // Sesuaikan dengan nama konfigurasi di Jenkins
-                    bat "\"%SONAR_SCANNER_HOME%\\bin\\sonar-scanner.bat\" -Dsonar.projectKey=my_php_project -Dsonar.sources=. -Dsonar.host.url=https://github.com/Dar1786/SonarQube-Jenkins.git
+                    bat "\"%SONAR_SCANNER_HOME%\\bin\\sonar-scanner.bat\" -Dsonar.projectKey=my_php_project -Dsonar.sources=. -Dsonar.host.url=https://github.com/Dar1786/SonarQube-Jenkins.git"
                 }
             }
         }
