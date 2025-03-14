@@ -1,14 +1,24 @@
 pipeline {
     agent any
-    
-    stages {
-        stage('Scan') {
-            steps {
-                withSonarQubeEnv('Sonar Faye Nathaly') {
-                   bat 'mvnw.cmd clean org.sonarsource.scanner.maven:sonar-maven-plugin:3.9.0.2155:sonar'
 
+    environment {
+        SONAR_SCANNER_HOME = "C:\Sonar\sonar-scanner-7.0.2.4839-windows-x64" // Ganti dengan path instalasi SonarScanner di Windows
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git 'https://github.com/Dar1786/SonarQube-Jenkins.git' // Ganti dengan repo kamu
+            }
+        }
+
+        stage('SonarQube Scan') {
+            steps {
+                withSonarQubeEnv('SonarQube') { // Sesuaikan dengan nama konfigurasi di Jenkins
+                    bat "\"%SONAR_SCANNER_HOME%\\bin\\sonar-scanner.bat\" -Dsonar.projectKey=my_php_project -Dsonar.sources=src -Dsonar.host.url=http://your-sonarqube-url -Dsonar.php.exclusions=**/vendor/**,**/tests/**"
                 }
             }
         }
     }
 }
+
