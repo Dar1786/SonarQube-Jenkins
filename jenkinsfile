@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/Dar1786/SonarQube-Jenkins.git' // Ganti dengan repo kamu
+                git branch: 'main', url: 'https://github.com/Dar1786/SonarQube-Jenkins.git' // Ganti dengan repo kamu
             }
         }
 
