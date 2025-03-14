@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        SONAR_SCANNER_HOME = "C:\Sonar\sonar-scanner-7.0.2.4839-windows-x64" // Ganti dengan path instalasi SonarScanner di Windows
+        SONAR_SCANNER_HOME = "C:\\Sonar\\sonar-scanner-7.0.2.4839-windows-x64" // Ganti dengan path instalasi SonarScanner di Windows
     }
 
     stages {
